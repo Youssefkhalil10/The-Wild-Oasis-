@@ -19,8 +19,12 @@ export async function getCurrentUser() {
   const { data, error } = await supabase.auth.getUser();
 
   if (error) throw new Error(error.message);
-  console.log(data);
 
   //after return this data, we need to save it in React Query, so use useQuery().
   return data?.user;
+}
+
+export async function LogOut() {
+  const { error } = await supabase.auth.signOut();
+  if (error) throw new Error(error.message);
 }

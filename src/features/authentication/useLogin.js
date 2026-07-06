@@ -13,7 +13,7 @@ export function useLogin() {
 
       //to change the data inside the QueryKey.
       queryClient.setQueriesData(["user"], user);
-      navigate("/dashboard");
+      navigate("/dashboard", { replace: true });
     },
     onError: (err) => {
       toast.error("There was a problem with email or Password");
