@@ -12,7 +12,7 @@ export function useLogin() {
       toast.success("user loged in successfully");
 
       //to change the data inside the QueryKey.
-      queryClient.setQueriesData(["user"], user);
+      queryClient.setQueryData(["user"], user.user);
       navigate("/dashboard", { replace: true });
     },
     onError: (err) => {
