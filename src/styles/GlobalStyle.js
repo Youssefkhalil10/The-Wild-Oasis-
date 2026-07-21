@@ -115,6 +115,28 @@ const GlobalStyle = createGlobalStyle`
   
 }
 
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-grey-100);
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    var(--color-brand-600),
+    var(--color-brand-700)
+  );
+  border-radius: 100px;
+  border: 3px solid var(--color-grey-50);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-700);
+}
+
 *,
 *::before,
 *::after {
