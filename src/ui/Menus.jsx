@@ -86,6 +86,10 @@ function Menus({ children }) {
 function Toggle({ id }) {
   const { open, close, setPosition, openId } = useContext(MenusContext);
   function handleClick(e) {
+    // Documentتوقف انتشار العنصر وميوصلش ل
+    e.stopPropagation();
+    console.log("click");
+    //getBoundingClientRect()=> معلومات عن مكان وحجم العنصر على الشاشة
     const rect = e.target.closest("button").getBoundingClientRect();
     setPosition({
       x: window.innerWidth - rect.width - rect.x,
@@ -108,7 +112,7 @@ function Toggle({ id }) {
 //this for the 3 buttons
 function List({ children, id }) {
   const { openId, position, close } = useContext(MenusContext);
-  const ref = useEvent(close);
+  const ref = useEvent(close, false);
   if (openId !== id) return null;
   return createPortal(
     <StyledList position={position} ref={ref}>
