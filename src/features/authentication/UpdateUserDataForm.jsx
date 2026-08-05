@@ -18,7 +18,7 @@ function UpdateUserDataForm() {
     },
   } = useUser();
 
-  const { updateUser, isUpdateUser } = useUpdateUser();
+  const { updateUser } = useUpdateUser();
 
   const [fullName, setFullName] = useState(currentFullName);
   const [avatar, setAvatar] = useState(null);
@@ -51,7 +51,7 @@ function UpdateUserDataForm() {
           type="text"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
-          disabled={isUpdateUser}
+          disabled={true}
           id="fullName"
         />
       </FormRow>
@@ -60,13 +60,14 @@ function UpdateUserDataForm() {
           id="avatar"
           accept="image/*"
           onChange={(e) => setAvatar(e.target.files[0])}
+          disabled={true}
         />
       </FormRow>
       <FormRow>
         <Button type="reset" variation="secondary" onClick={handleCancle}>
           Cancel
         </Button>
-        <Button disabled={isUpdateUser}>Update account</Button>
+        <Button disabled={true}>Update account</Button>
       </FormRow>
     </Form>
   );
